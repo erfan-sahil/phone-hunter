@@ -24,11 +24,12 @@
           <div class="d-flex" role="search">
             <input
               class="form-control me-2"
+              id="search-field"
               type="search"
               placeholder="Search"
               aria-label="Search"
             />
-            <button class="btn btn-outline-danger" type="submit">
+            <button class="btn btn-outline-danger" onclick="mobileSearch()" type="submit">
               Search
             </button>
         </div>
@@ -37,12 +38,13 @@
       </nav>
     </header>
 
+    <!-- carousel-part-start -->
 
     <section class="container mt-5 mb-5">
         <div id="carouselExample" class="carousel slide">
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <img src="images/flat-design-realistic-banner-template_23-2150102691.jpg" class="d-block w-100" alt="...">
+                <img src="images/Mobile-Banner-1.jpg" class="d-block w-100" alt="...">
               </div>
             
             
@@ -58,7 +60,7 @@
           </div>
     </section>
 
-
+<!-- carousel-part-end -->
 
     <main class="mt-5 mb-5">
 
@@ -67,11 +69,12 @@
 
 <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
     <div class="offcanvas-header">
-      <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Details</h5>
+      <h3 class="offcanvas-title" id="offcanvasScrollingLabel">Details</h3>
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
+
     <div id="mobile-detail-container" class="offcanvas-body">
-      
+
     </div>
 </div>
 

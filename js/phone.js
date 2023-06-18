@@ -1,6 +1,6 @@
-let mobileFinder = () =>{
+let mobileFinder = (searchText) =>{
 
-    url= `https://openapi.programming-hero.com/api/phones?search=iphone`
+    url= `https://openapi.programming-hero.com/api/phones?search=${searchText}`
     fetch(url)
     .then(res => res.json())
     .then(data => printOut(data.data))
@@ -10,6 +10,8 @@ let mobileFinder = () =>{
 let printOut = (mobiles) =>{
 
     let mobileContainer = document.getElementById('mobile-container')
+
+    mobileContainer.innerHTML = ` `;
 
     for(let mobile of mobiles){
         let newDiv = document.createElement('div')
@@ -46,7 +48,25 @@ let mobileDetail = (id) =>{
 
         mobileDetailContainer.innerHTML = `
         
-        
+        <div class="col">
+        <div class="card">
+          <img src="${mobile.image}" class="card-img-top p-4" alt="...">
+          <div class="card-body">
+            <h2 class="card-title"> ${mobile.name}</h2>
+            <h5 class="card-text"> ${mobile.releaseDate}</h5>
+            <h4> Features </h4>
+            <ul>
+            
+            <li>Storage: Storage : ${mobile.mainFeatures.storage} </li>
+            <li>Storage: Display Size : ${mobile.mainFeatures.displaySize} </li>
+            <li>Storage: Chipset : ${mobile.mainFeatures.chipSet} </li>
+            <li>Storage: Memory : ${mobile.mainFeatures.memory} </li>
+            <li>Storage: Sensors : ${mobile.mainFeatures.sensors} </li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
 
         `
 
@@ -55,6 +75,17 @@ let mobileDetail = (id) =>{
 
 }
 
+let mobileSearch = () =>{
+
+    let searchField = document.getElementById('search-field')
+    let searchFieldValue = searchField.value ;
+
+    mobileFinder(searchFieldValue)
+
+    searchFieldValue = '';
+
+}
 
 
-mobileFinder()
+
+mobileFinder('iphone')
